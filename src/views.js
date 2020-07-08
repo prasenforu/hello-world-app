@@ -29,6 +29,7 @@ export default (storage) => {
       data.heroName = heroName;
       data.heroTitle = (heroName ? `Oh, you like ${heroName}, are you sure?` : 'Your favourite super hero?');
       data.details = [
+        { key: 'Kube Env', value: process.env.KUBEENV || 'unknown' },
         { key: 'Namespace', value: process.env.NAMESPACE || 'unknown' },
         { key: 'Pod UID', value: process.env.POD_UID || 'unknown' },
         { key: 'Pod name', value: process.env.POD_NAME || 'unknown' },
