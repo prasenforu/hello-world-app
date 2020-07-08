@@ -35,6 +35,7 @@ export default (storage, commit, tag) => {
       commit,
       tag,
       startedAt,
+      kubeenv: process.env.KUBEENV || 'unknown',
       namespace: process.env.NAMESPACE || 'unknown',
       podUid: process.env.POD_UID || 'unknown',
       podName: process.env.POD_NAME || 'unknown',
