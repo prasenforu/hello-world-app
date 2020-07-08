@@ -1,0 +1,14 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  labels:
+    name: hello-world-app
+  name: hello-world-app
+spec:
+  rules:
+    - host: hello-world-app.stagapps.cloud-cafe.tk
+      http:
+        paths:
+          - backend:
+              serviceName: hello-world-app
+              servicePort: 80

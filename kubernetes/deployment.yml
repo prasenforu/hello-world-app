@@ -1,6 +1,6 @@
 
 ---
-apiVersion: extensions/v1beta1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: hello-world-app
@@ -8,6 +8,9 @@ metadata:
     app: hello-world-app
 spec:
   replicas: 1
+  selector:
+    matchLabels:
+      app: hello-world-app
   template:
     metadata:
       labels:
@@ -15,7 +18,7 @@ spec:
     spec:
       containers:
         - name: hello-world-app
-          image: polarsquad/hello-world-app:master
+          image: 10.128.0.26:9000/prasencicd/hello-world-app
           imagePullPolicy: Always
           ports:
             - containerPort: 3000
@@ -55,3 +58,5 @@ spec:
               valueFrom:
                 fieldRef:
                   fieldPath: status.hostIP
+            - name: KUBEENV
+              value: kubeenv
